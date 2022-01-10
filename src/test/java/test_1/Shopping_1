@@ -1,0 +1,53 @@
+package day04;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class C04_Test04 {
+    /*
+         1."https://www.saucedemo"
+         2.username => standard_user
+         3.Password => secret_sauce
+         4.Login click
+         5.save first product's name and go to the it's page
+         6."Add a Cart" click
+         7.shopping-box click
+         8.you check to your product to the  shopping-box isdisplayed
+         9. close page
+     */
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver= new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+
+        driver.get("https://www.saucedemo.com");
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+        driver.findElement(By.id("login-button")).click();
+       String firstproduct= driver.findElement(By.xpath("//div[@class='inventory_item_name'][1]")).getText();
+        driver.findElement(By.xpath("//div[@class='inventory_item_name'][1]")).click();
+        driver.findElement(By.xpath("//button[@name='add-to-cart-sauce-labs-backpack']")).click();
+        driver.findElement(By.xpath("//span[@class='shopping_cart_badge']")).click();
+        String checkresult= driver.findElement(By.xpath("//div[@class='inventory_item_name']")).getText();
+
+        if(firstproduct.equals(checkresult)){
+            System.out.println("test PASS");
+        }else{
+            System.out.println("test FAIL");
+        }
+        
+        //or..
+        WebElement res=driver.findElement(By.xpath("//div[@class='inventory_item_name']"));
+        if(res.isDisplayed()){
+            System.out.println("isdisplay");
+        }else{
+            System.out.println("false");
+        }
+    }
+}
