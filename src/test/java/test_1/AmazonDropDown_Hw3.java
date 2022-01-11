@@ -11,10 +11,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 import java.util.*;
-import java.util.stream.Collectors;
 
 //Homework_3
-public class AmazonDropDown {
+public class AmazonDropDown_Hw3 {
     /*Create A Class: AmazonDropdown
 ●
 ● Create A Method dropdownTest

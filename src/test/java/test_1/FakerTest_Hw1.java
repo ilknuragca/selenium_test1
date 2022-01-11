@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class Homework_1 {
+public class FakerTest_Hw1 {
         WebDriver driver;
 
         @Before

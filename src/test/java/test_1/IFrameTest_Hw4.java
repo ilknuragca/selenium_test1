@@ -11,9 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import java.time.Duration;
-
-public class IFrameTest_4 {
+public class IFrameTest_Hw4 {
 
     WebDriver driver;
 

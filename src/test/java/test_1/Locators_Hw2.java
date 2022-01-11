@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 //Homework_2
-public class Locators {
+public class Locators_Hw2 {
     WebDriver driver;
     @Before
     public void setUp(){
