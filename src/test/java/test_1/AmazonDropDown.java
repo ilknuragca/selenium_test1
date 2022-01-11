@@ -94,19 +94,30 @@ otherwise.
         List<String> dropdownStringOrder= new ArrayList<>();
 
         for(WebElement eachDropdown: allDropdowns){
-            dropdownString.add(eachDropdown.getText());
-            dropdownStringOrder.add(eachDropdown.getText());
+            dropdownString.add(eachDropdown.getText().toUpperCase());
+            dropdownStringOrder.add(eachDropdown.getText().toUpperCase());
         }
         System.out.println(dropdownString);
         Collections.sort(dropdownStringOrder);
+
         System.out.println(dropdownStringOrder);
 
-
-        if(dropdownString.containsAll(dropdownStringOrder)){
-            System.out.println("Dropdown is in Alphabetical Order" );
+        if(dropdownString.equals(dropdownStringOrder)){
+            System.out.println("Dropdown is in Alphabetical Order..." );
         }else{
-            System.out.println("Dropdown is not in Alphabetical Order" );
+            System.out.println("Dropdown is not in Alphabetical Order..." );
         }
+
+/*
+  List<String> list= new LinkedList<>();
+        for (WebElement w:allOptions){
+            list.add(w.getText().toUpperCase());
+        }
+
+       boolean isOrdered= Ordering.natural().isOrdered(list);
+        System.out.println("Is the dropdown is ordered alphabetically? "+ isOrdered);
+ */
+
 
     }
 
